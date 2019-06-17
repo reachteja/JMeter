@@ -1,0 +1,34 @@
+********** JMeter Scenarios or Practical Interview Questions ******************
+
+These are framed based on my JMeter experience and not copied from anywhere.
+
+1. How can you handle if we have Ajax calls in the website (page is refreshed for every 5sec and data is updated)
+Ans: Parallel controller is used for this. We can use if contoller - to check 5 sec condition and loop controller to loop the refresh request for every 5 sec.
+
+2. Think of a situation where we are getting many errors in the load test running in Non GUI mode. How do we stop the test now as running it further is of no use due to high errors? 
+Ans: For Windoows - stoptest.bat, shutodwn.bat - Double click on both these bat files in Jmeter/bin one by one. The test will be stopped.
+For Mac - stoptest.sh, shutodwn.sh - Double click on both these bat files in Jmeter/bin one by one. The test will be stopped.
+
+3. How do you capture response time of previous request to use it in next request.
+Ans: We can capture in beanshell/jsr223 sampler with function prev.getTime()
+
+4. How to resolve "Need to pass bearer token authorization header" error message
+Ans: We need to correlate access_token. we need to place it in HTTP header manager - Name: Authorization, Value: Bearer ${Correlated_value}
+
+5. How do you monitor server metrics of a JMeter Load test assuming that application is hosted on windows server?
+Ans: We can use Perfmon plugin in JMeter which captures performance metrics of server.
+
+6. I have recorded the script in Mac, Will the test run in windows or not?
+Ans: Yes
+
+7. Which listener is the best one to keep during the load test.
+Ans: Simple Data Writer
+
+8. Which one is better to use - a. Beanshell, b. JSSR223 with respect to performance
+Ans: JSR223 sampler
+
+9. I want to execute a Transaction1 only after 10 users reaching this point. how to handle this
+Ans: We can achieve this with synchronizing timer
+
+10. How can we collect client side metrics with JMeter?
+Ans: With WebDriver Sampler, we can collect client side metrics.
